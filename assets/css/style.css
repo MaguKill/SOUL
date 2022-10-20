@@ -1878,7 +1878,7 @@ textarea.form-control {
 
 #faqs_arae_main .accordion-button:not(.collapsed) {
     color: #fff;
-    background-color: var(--main-color);
+    background-color: #8FACBE;
 }
 
 .accordion-button:focus {
