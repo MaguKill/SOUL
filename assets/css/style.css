@@ -565,9 +565,6 @@ section {
     position: relative;
 }
 
-.section_heading h2:before {
-    content: url('../img/icon/heading.png');
-}
 
 .section_after {
     position: relative;
