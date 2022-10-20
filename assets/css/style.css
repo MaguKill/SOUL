@@ -681,6 +681,7 @@ section {
 #home_one_banner {
     background-image: url('../img/banner/home-banner-bg.png');
     padding: 60px 0;
+    color: #ffffff0d;
     background-repeat: no-repeat;
     background-size: cover;
 }
