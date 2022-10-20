@@ -1377,6 +1377,7 @@ section {
 .testimonial_wrapper_boxed img {
     width: 110px !important;
     margin: 0 auto;
+    border-radius: 50%;
 }
 
 .testimonial_wrapper_boxed p {
