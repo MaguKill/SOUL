@@ -1408,7 +1408,7 @@ section {
     width: 15px;
     height: 15px;
     margin: 5px 5px;
-    background: #e03c3366;
+    background: #8FACBE;
     display: block;
     backface-visibility: visible;
     transition: opacity .2s ease;
@@ -1980,7 +1980,7 @@ textarea.form-control {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background: #ff00003b;
+    background: #8FACBE;
     display: flex;
     justify-content: center;
     align-items: center;
