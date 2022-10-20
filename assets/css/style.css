@@ -1418,7 +1418,7 @@ section {
 
 .slider_dots.owl-theme .owl-dots .owl-dot.active span,
 .slider_dots.owl-theme .owl-dots .owl-dot:hover span {
-    background: var(--main-color);
+    background: #8FACBE;
 }
 
 #trending_causes_main .case_boxed_wrapper {
