@@ -626,7 +626,7 @@ section {
 
 .btn_theme {
     color: var(--white-color);
-    background-color: var(--main-color);
+    background-color: #8FACBE;
     transition: var(--transition);
     box-shadow: none;
     overflow: hidden;
