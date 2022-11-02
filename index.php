@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 
-
-<!-- Mirrored from andit.co/projects/html/jago-welfare/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Sep 2022 23:35:53 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -415,11 +410,19 @@
         <div class="container">
             <div class="row">
                 <div class="gallery-filter">
-                    <span class="filter-item active mb-2" data-filter="all">Todas</span>
-                    <span class="filter-item mb-2" data-filter="animales">Animales</span>
-                    <span class="filter-item mb-2" data-filter="arte">Arte</span>
-                    <span class="filter-item mb-2" data-filter="mujeres">Mujeres</span>
-                    <span class="filter-item mb-2" data-filter="construcción">Reconstrucción</span>
+                    <?php
+                    
+                    include 'php/conexion.php';
+                    $query = 'SELECT Nombre FROM categorias ORDER BY Nombre ASC';
+                    $result = mysqli_query($con, $query);
+                    if(mysqli_num_rows($result) > 0) {
+                        echo '<span class="filter-item active mb-2" data-filter="all">Todas</span>';
+                        foreach ($result as $category) {
+                            echo '<span class="filter-item mb-2" data-filter="'.$category['Nombre'].'">'.$category['Nombre'].'</span>';
+                        }
+                    }
+                    
+                    ?>
                 </div>
                 <!-- <div class="col-lg-6">
                     <div class="faqs_area">
@@ -676,8 +679,31 @@
                 </div> -->
             </div>
             <div class="row">
+                <?php
+
+                $query = 'SELECT cat.Nombre as "Categoria", f.Nombre as "NombreFundacion", f.Descripcion as "DescripcionFundacion" FROM fundaciones f, categorias cat WHERE cat.Id = f.IdCategoria';
+
+                $result = mysqli_query($con, $query);
+                    if(mysqli_num_rows($result) > 0) {
+                        foreach ($result as $item) {
+                            echo '<div class="gallery-item '.$item['Categoria'].'">
+                            <div class="case_boxed_wrapper">
+                                <div class="case_boxed_img">
+                                    <img src="assets/img/causes/causes-1.png" alt="'.$item['Categoria'].'">
+                                    <span class="causes_badge bg-theme">'.$item['Categoria'].'</span>
+                                </div>
+                                <div class="causes_boxed_text">
+                                    <h3>'.$item['NombreFundacion'].'</h3>
+                                    <p>'.$item['DescripcionFundacion'].'</p>
+                                </div>
+                            </div>
+                        </div>';
+                        }
+                    }
+                
+                ?>
                 <!-- gallery item start -->
-                <div class="gallery-item animales">
+                <!-- <div class="gallery-item animales">
                     <div class="case_boxed_wrapper">
                         <div class="case_boxed_img">
                             <img src="assets/img/causes/causes-1.png" alt="img">
@@ -689,37 +715,7 @@
                                 adipisicing elit sed do eiusmod tempor.</p>
                         </div>
                     </div>
-                </div>
-                <!-- gallery item end -->
-                <!-- gallery item start -->
-                <div class="gallery-item animales">
-                    <div class="case_boxed_wrapper">
-                        <div class="case_boxed_img">
-                            <img src="assets/img/causes/causes-1.png" alt="img">
-                            <span class="causes_badge bg-theme">Animales</span>
-                        </div>
-                        <div class="causes_boxed_text">
-                            <h3>Panthera</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur notted
-                                adipisicing elit sed do eiusmod tempor.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- gallery item end -->
-                <!-- gallery item start -->
-                <div class="gallery-item animales">
-                    <div class="case_boxed_wrapper">
-                        <div class="case_boxed_img">
-                            <img src="assets/img/causes/causes-1.png" alt="img">
-                            <span class="causes_badge bg-theme">Animales</span>
-                        </div>
-                        <div class="causes_boxed_text">
-                            <h3>Rescatando Vidas, Regalando Amor A.C. </h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur notted
-                                adipisicing elit sed do eiusmod tempor.</p>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
                 <!-- gallery item end -->
             </div>
         </div>
